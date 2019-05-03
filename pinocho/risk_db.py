@@ -2,39 +2,40 @@ import math
 import mysql.connector
 from mysql.connector import Error
 try:
-   mySQLconnection = mysql.connector.connect(host='http://72.36.65.71/humhub',
+    mySQLconnection = mysql.connector.connect(host='http://72.36.65.71/humhub',
                              database='pinocho',
                              user='root',
                              password='root')
 
-   sql_select_Query = "SELECT * FROM `request` WHERE id=(SELECT MAX(id) FROM `request`);;"
-   cursor = mySQLconnection .cursor()
-   cursor.execute(sql_select_Query)
-   records = cursor.fetchall()
+    sql_select_Query = "SELECT * FROM `request` WHERE id=(SELECT MAX(id) FROM `request`);;"
+    cursor = mySQLconnection .cursor()
+    cursor.execute(sql_select_Query)
+    records = cursor.fetchall()
 
-   for row in records:
-       print("datatype = ", row[6], )
-       print("UserId = ", row[1])
+    for row in records:
+        print("datatype = ", row[6])
+        print("UserId = ", row[1])
 
     if row[6] == 'identified':
-        input_risk[1,95,3]
+        input_risk = [1,95,3]
     elif row[6] == 'deidentified':
-        input_risk[1,30,3]
+        input_risk = [1,30,3]
     elif row[6] == 'limited':
-        input_risk[1,45,3]
+        input_risk = [1,45,3]
     elif row[6] == 'aggregated':
-        input_risk[1,3,3]
+        input_risk = [1,3,3]
     
        
-   cursor.close()
+    cursor.close()
 
 # the user type for local and external
-usertype = [1, 90]
+#usertype = [1, 90]
 #Data source can be local and external
-datasource = [3, 95]
+#datasource = [3, 95]
 #Data type can range from Identified,Deidentified,Limited and Aggregated
-datatype = [95,30,45,3]
-input_risk = [1,3,3]
+#datatype = [95,30,45,3]
+#input_risk = [1,3,3]
+
 accept_risk = 25
 
 # a risk function that calculates the probability of risk 

@@ -1,4 +1,4 @@
-a:2:{i:0;s:1420:"
+a:2:{i:0;s:1430:"
 <a href="/humhub/index.php?r=activity%2Flink&id=15">
     <li class="activity-entry" data-stream-entry data-action-component="activity.ActivityStreamEntry" data-content-key="18">
         <div class="media">
@@ -16,7 +16,7 @@ a:2:{i:0;s:1420:"
                 <strong>Josh Westbrook</strong> joined the space <strong>Welcome Space</strong>                <br>
 
                 <!-- show time -->
-                <span class="time" title="2019-04-30T18:14:39-05:00">Apr 30, 2019 - 6:14 PM</span>            </div>
+                <span class="time"><span title="Apr 30, 2019 - 6:14 PM">Apr 30, 2019 - 6:14 PM</span></span>            </div>
         </div>
     </li>
 </a>
