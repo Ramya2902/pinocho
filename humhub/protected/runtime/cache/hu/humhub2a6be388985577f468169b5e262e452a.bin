@@ -1,4 +1,4 @@
-a:2:{i:0;s:1505:"
+a:2:{i:0;s:1495:"
 <a href="/humhub/index.php?r=activity%2Flink&id=9">
     <li class="activity-entry" data-stream-entry data-action-component="activity.ActivityStreamEntry" data-content-key="11">
         <div class="media">
@@ -16,7 +16,7 @@ a:2:{i:0;s:1505:"
                 <strong>Sara Schuster</strong> likes post "We're looking for great slogans of famous brands. Maybe you...."                <br>
 
                 <!-- show time -->
-                <span class="time"><span title="Apr 30, 2019 - 3:40 PM">Apr 30, 2019 - 3:40 PM</span></span>            </div>
+                <span class="time"><span title="Apr 30, 2019 - 3:40 PM">Apr 30, 2019</span></span>            </div>
         </div>
     </li>
 </a>

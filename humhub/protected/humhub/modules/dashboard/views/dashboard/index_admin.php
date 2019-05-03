@@ -261,7 +261,7 @@ use humhub\widgets\FooterMenu;
             },
             success: function(data) {
                 console.dir(data);
-                if(data.pending.length == 0) {
+                if(data.pending == undefined || data.pending.length == 0) {
                     $('#pending-table > tbody').append('<tr><td colspan="3">There are no pending requests!</td></tr>');
                 }else {
                     $.each(data.pending, function (i) {
@@ -274,7 +274,7 @@ use humhub\widgets\FooterMenu;
                     });
                 }
 
-                if(data.approved.length == 0) {
+                if(data.approved == undefined || data.approved.length == 0) {
                     $('#approved-table > tbody').append('<tr><td colspan="3">There are no approved requests!</td></tr>');
                 }else {
                     $.each(data.approved, function (i) {
@@ -287,7 +287,7 @@ use humhub\widgets\FooterMenu;
                     });
                 }
 
-                if(data.denied.length == 0) {
+                if(data.denied == undefined || data.denied.length == 0) {
                     $('#denied-table > tbody').append('<tr><td colspan="3">There are no denied requests!</td></tr>');
                 }else {
                     $.each(data.denied, function (i) {

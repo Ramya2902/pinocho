@@ -1,4 +1,4 @@
-a:2:{i:0;s:1414:"
+a:2:{i:0;s:1424:"
 <a href="/humhub/index.php?r=activity%2Flink&id=18">
     <li class="activity-entry" data-stream-entry data-action-component="activity.ActivityStreamEntry" data-content-key="21">
         <div class="media">
@@ -16,7 +16,7 @@ a:2:{i:0;s:1414:"
                 <strong>End User</strong> joined the space <strong>Welcome Space</strong>                <br>
 
                 <!-- show time -->
-                <span class="time" title="2019-05-01T12:48:50-05:00">May 1, 2019 - 12:48 PM</span>            </div>
+                <span class="time"><span title="May 1, 2019 - 12:48 PM">May 1, 2019 - 12:48 PM</span></span>            </div>
         </div>
     </li>
 </a>

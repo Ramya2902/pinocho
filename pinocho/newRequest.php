@@ -31,13 +31,17 @@
     $result = $conn->query($sql);
     $json = null;
 
+    $command = escapeshellcmd('python /var/www/html/pinocho/risk_db2.py');
+    $message = exec($command);
+
     if($result) {
-        $json = array("status" => "OK");
+	$json = array("status" => "OK",
+	            "message" => $message);
     }else {
         $json = array("status" => "ERROR",
-                    "error" => $conn->error);
-    }
-
+		"error" => $conn->error,
+	        "message" => $message);
+    } 
 
     // $obj = array("requestID" => $_GET['request_id'],
     // "requestDate" => $_GET['request_date'],

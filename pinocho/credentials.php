@@ -2,7 +2,7 @@
 
 $servername = "localhost";
 $username = "pinocho";
-$password = "123456";
+$password = "password";
 $dbname = "pinocho";
 
 ?>

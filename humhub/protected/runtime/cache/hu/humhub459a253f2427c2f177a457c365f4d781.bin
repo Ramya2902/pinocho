@@ -1,4 +1,4 @@
-a:2:{i:0;s:1518:"
+a:2:{i:0;s:1508:"
 <a href="/humhub/index.php?r=activity%2Flink&id=11">
     <li class="activity-entry" data-stream-entry data-action-component="activity.ActivityStreamEntry" data-content-key="14">
         <div class="media">
@@ -16,7 +16,7 @@ a:2:{i:0;s:1518:"
                 <strong>David Roberts</strong> answered the Question "Right now, we are in the planning stages for our next meetup...".                <br>
 
                 <!-- show time -->
-                <span class="time"><span title="Apr 30, 2019 - 3:40 PM">Apr 30, 2019 - 3:40 PM</span></span>            </div>
+                <span class="time"><span title="Apr 30, 2019 - 3:40 PM">Apr 30, 2019</span></span>            </div>
         </div>
     </li>
 </a>
