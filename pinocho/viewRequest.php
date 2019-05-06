@@ -3,7 +3,7 @@
     require ('credentials.php');
 
     // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli($pinocho_servername, $pinocho_username, $pinocho_password, $pinocho_dbname);
 
     // Check connection
     if ($conn->connect_error) {

@@ -24,7 +24,7 @@ use humhub\widgets\FooterMenu;
         margin: auto;
         width: 50% !important; 
     }
-    td.request-id > a {
+    td.request-id > a, #view-request-access-link > a {
         cursor: pointer;
     }
 </style>
@@ -33,12 +33,14 @@ use humhub\widgets\FooterMenu;
     function returnToDashboard() {
         $('.user-view-request').hide();
         $('.user-new-request').hide();
+        $('.user-view-data').hide();
         $('.user-dashboard').show();
     }
 
     function showNewRequest() {
         $('.user-view-request').hide();
         $('.user-dashboard').hide();
+        $('.user-view-data').hide();
         $('.user-new-request').show();
     }
 </script>
@@ -132,6 +134,11 @@ use humhub\widgets\FooterMenu;
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Title -->
+                    <tr>
+                        <td>Title</td>
+                        <td id="view-request-title">Request Title</td>
+                    </tr>
                     <!-- Date -->
                     <tr>
                         <td>Date</td>
@@ -152,11 +159,31 @@ use humhub\widgets\FooterMenu;
                         <td>Description</td>
                         <td id="view-request-desc">This is the description</td>
                     </tr>
+                    <!-- Dataset Name -->
+                    <tr>
+                        <td>Requested Dataset</td>
+                        <td id="view-request-dataset-name">This is the dataset name</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
  
+    <div class="row user-view-data" style="display:none">
+    <button type="button" class="btn btn-primary" onclick="returnToDashboard()">Back to Dashboard</button>
+        <div class="row">
+            <h3 id="view-data-header" class="text-center">View Data - Request &lt;ID&gt;</h3>
+            <table id="view-request-table" class="table text-center">
+                <thead>
+                    <tr>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
     <div class="row user-new-request" style="display:none">
         <h3>New Request:</h3>
         <form id="new-request-form" action="/pinocho/newRequest.php">
@@ -168,6 +195,39 @@ use humhub\widgets\FooterMenu;
                 <label for="desc">Request Description:</label>
                 <input type="text" class="form-control" id="desc" name="desc" required placeholder="Require IDC10, OPS 8-52 data; need data to query faster; secure and visualize analysis; Data to be accessed compliant with DLC3">
 	        </div>
+            <div class="form-group">
+                <label for="dataset">Which dataset are you trying to access?:</label>
+                <select id="dataset" name="dataset">
+                <!--
+                    (' Care site place of service counts ',)
+                    (' Counts of condition record ',)
+                    (' Counts of condition types ',)
+                    (' Counts of drug types ',)
+                    (' Counts of persons with any number of exposures to a certain drug ',)
+                    (' Distribution of age across all observation period records ',)
+                    (' How long does a condition last ',)
+                    (' Number of patients by gender, stratified by year of birth ',)
+                    (' Number of people continuously observed throughout a year ',)
+                    (' Number of people who have at least one observation period that is longer than 365 days ',)
+                    (' Patient count per care site place of service ',)
+                    (' person, first observation date ',)
+                    (' unique patient id taking drug ',)
+                    -->
+                    <option selected value="1001">Care site place of service counts</option>
+                    <option value="1002">Counts of condition record</option>
+                    <option value="1003">Counts of condition types</option>
+                    <option value="1004">Counts of drug types</option>
+                    <option value="1005">Counts of persons with any number of exposures to a certain drug</option>
+                    <option value="1006">Distribution of age across all observation period records</option>
+                    <option value="1007">How long does a condition last</option>
+                    <option value="1008">Number of patients by gender, stratified by year of birth</option>
+                    <option value="1009">Number of people continuously observed throughout a year</option>
+                    <option value="1010">Number of people who have at least one observation period that is longer than 365 days</option>
+                    <option value="1011">Patient count per care site place of service</option>
+                    <option value="1012">person, first observation date</option>
+                    <option value="1013">unique patient id taking drug</option>
+                </select>
+            </div>
             <div class="form-group">
                 <label for="usage">How will you use the data?:</label>
                 <input type="text" class="form-control" id="usage" name="usage" required placeholder="Data processed within community cloud">
@@ -262,6 +322,9 @@ use humhub\widgets\FooterMenu;
         $('#topbar-second').hide();
 
         var user_id = "<?php echo $user_id ?>";
+        var user_type = "<?php echo $user_type ?>";
+
+        console.log(user_type);
 
         $.ajax({
             url: "/pinocho/viewRequests.php",
@@ -349,10 +412,65 @@ use humhub\widgets\FooterMenu;
                                     }
 
                                     if($('#view-request-access-link').length) {
-                                        $('#view-request-access-link').html('<a href="#">Click Here</a>');
+                                        $('#view-request-access-link').html('<a>Click Here</a>');
                                     }else {
-                                        $('#view-request-desc').parent().after('<tr><td>Access Data</td><td id="view-request-access-link"><a href="#">Click Here</a></td></tr>');
+                                        $('#view-request-dataset-name').parent().after('<tr><td>Access Data</td><td id="view-request-access-link"><a href="#">Click Here</a></td></tr>');
                                     }
+
+                                    $('#view-request-access-link > a').click(function() {
+                                        console.dir("view data link clicked");
+
+                                        $('div.user-view-data > div > table > thead > tr').html('<td colspan="2">The request returned an empty dataset.</td>');
+                                        $('div.user-view-data > div > table > tbody').html("");
+
+                                        $.ajax({
+                                            url: "/pinocho/viewData.php",
+                                            type: 'GET',
+                                            dataType: 'json',
+                                            data: {
+                                                "request_id": $('#view-request-id').text()
+                                            },
+                                            success: function(data) {
+                                                console.dir(data);
+
+                                                if(data.data.length != 0) {
+                                                    $('div.user-view-data > div > table > thead > tr').html("");
+
+                                                    // determine all column names
+                                                    var keys = [];
+                                                    for(var key in data.data[0]) {
+                                                        if(data.data[0].hasOwnProperty(key) && /^\d+$/.test(key) == false) {
+                                                            keys.push(key);
+                                                        }
+                                                    }
+
+                                                    // console.dir(keys);
+
+                                                    for(var key in keys) {
+                                                        $('div.user-view-data > div > table > thead > tr').append("<td>" + keys[key] + "</td>");
+                                                    }
+
+                                                    for(var row in data.data) {
+                                                        $('div.user-view-data > div > table > tbody').append("<tr></tr>");
+                                                        // console.dir(data.data[row]);
+                                                        for(var key in keys) {
+                                                            $('div.user-view-data > div > table > tbody > tr').last().append("<td>" + data.data[row][keys[key]] + "</td>");
+                                                        }
+                                                    }
+                                                }
+
+                                                $('#view-data-header').text("View Data - Request " + $('#view-request-id').text());
+
+                                                $('div.user-dashboard').hide();
+                                                $('div.user-view-request').hide();
+                                                $('div.user-view-data').show();
+                                            },
+                                            error: function(res) {
+                                                console.log("error - GET => /pinocho/viewData.php");
+                                                console.dir(res);
+                                            }
+                                        });
+                                    });
                                 }else if(data.status == "denied") {
                                     if(data.deniedDescription != null) {
                                         if($('#view-request-denied-desc').length) {
@@ -368,10 +486,12 @@ use humhub\widgets\FooterMenu;
                                 }
 
                                 $('#view-request-header').text("View Request - " + data.id);
+                                $('#view-request-title').text(data.title);
                                 $('#view-request-date').text(dateString);
                                 $('#view-request-id').text(data.id);
                                 $('#view-request-status').text(status);
                                 $('#view-request-desc').text(data.description);
+                                $('#view-request-dataset-name').text(data.dataset_name);
 
                                 $('div.user-dashboard').hide();
                                 $('div.user-view-request').show();
@@ -436,6 +556,12 @@ use humhub\widgets\FooterMenu;
                 return;
             }
 
+            // console.dir($('#data-type'));
+            if($('#dataset').val() == null) {
+                alert("You must select a dataset.");
+                return;
+            }
+
             $.ajax({
                 url: "/pinocho/newRequest.php",
                 type: 'POST',
@@ -448,14 +574,16 @@ use humhub\widgets\FooterMenu;
                     "access_length": $('#access-length').val(),
                     "access_soon": $('#access-soon').val(),
                     "data_type": $('#data-type').val(),
-                    "user_id": user_id
+                    "dataset_id": $('#dataset').val(),
+                    "user_id": user_id,
+                    "user_type": user_type
                 },
                 success: function(data) {
                     console.dir(data);
 
                     if(data.status == "OK") {
                         alert("Successfully added new request. Press OK to return to dashboard");
-                        //location.reload();
+                        location.reload();
                     }else {
                         alert("Failed to add new request. Error:\n" + data.error + "\nPlease try again.");
                     }
@@ -467,7 +595,7 @@ use humhub\widgets\FooterMenu;
         });
 
         $('#new-request-cancel-btn').click(function() {
-
+            location.reload();
         });
     });
 </script>

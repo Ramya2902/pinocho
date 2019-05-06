@@ -558,3 +558,371 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1556748120.056
     'REQUEST_TIME' => 1556748120
 ]
+2019-05-05 15:02:31 [173.24.74.211][5][gnin44mtf4tsbhvfo15freajdk][error][yii\base\ErrorException:8] yii\base\ErrorException: Array to string conversion in /var/www/html/humhub/protected/humhub/modules/dashboard/views/dashboard/index.php:265
+Stack trace:
+#0 /var/www/html/humhub/protected/humhub/modules/dashboard/views/dashboard/index.php(265): yii\base\ErrorHandler->handleError(8, 'Array to string...', '/var/www/html/h...', 265, Array)
+#1 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/View.php(336): require('/var/www/html/h...')
+#2 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/View.php(254): yii\base\View->renderPhpFile('/var/www/html/h...', Array)
+#3 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/h...', Array, Object(humhub\modules\dashboard\controllers\DashboardController))
+#4 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('index', Array, Object(humhub\modules\dashboard\controllers\DashboardController))
+#5 /var/www/html/humhub/protected/humhub/modules/dashboard/controllers/DashboardController.php(77): yii\base\Controller->render('index', Array)
+#6 [internal function]: humhub\modules\dashboard\controllers\DashboardController->actionIndex()
+#7 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#10 /var/www/html/humhub/protected/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('dashboard/dashb...', Array)
+#11 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(humhub\components\Request))
+#12 /var/www/html/humhub/index.php(25): yii\base\Application->run()
+#13 {main}
+2019-05-05 15:02:31 [173.24.74.211][5][gnin44mtf4tsbhvfo15freajdk][info][application] $_GET = [
+    'r' => 'dashboard/dashboard'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'pinocho.tk'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3'
+    'HTTP_REFERER' => 'http://pinocho.tk/humhub/index.php?r=user%2Fauth%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => 'PHPSESSID=gnin44mtf4tsbhvfo15freajdk; _identity=6fb9ad1e1820be421479592e1cdff5b7a17c994ea372c106e41543a1e1431f6da%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A50%3A%22%5B5%2C%22ea5a040c-5481-4007-bc57-f600ebc4f173%22%2C2592000%5D%22%3B%7D; _csrf=102b2b9f3200423eda5634a4fef1cf3200e55c37784f9f71d6cff4298db5511ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22k6eZTKsJqYE25rT_GgEByORatid-9Xyu%22%3B%7D'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at pinocho.tk Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'pinocho.tk'
+    'SERVER_ADDR' => '72.36.65.71'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '173.24.74.211'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/humhub/index.php'
+    'REMOTE_PORT' => '51785'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=dashboard%2Fdashboard'
+    'REQUEST_URI' => '/humhub/index.php?r=dashboard%2Fdashboard'
+    'SCRIPT_NAME' => '/humhub/index.php'
+    'PHP_SELF' => '/humhub/index.php'
+    'REQUEST_TIME_FLOAT' => 1557086551.159
+    'REQUEST_TIME' => 1557086551
+]
+2019-05-05 15:07:29 [173.24.74.211][5][gnin44mtf4tsbhvfo15freajdk][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: humhub\modules\user\components\User::getUserGroups() in /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Component.php:300
+Stack trace:
+#0 /var/www/html/humhub/protected/humhub/modules/dashboard/controllers/DashboardController.php(77): yii\base\Component->__call('getUserGroups', Array)
+#1 [internal function]: humhub\modules\dashboard\controllers\DashboardController->actionIndex()
+#2 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#5 /var/www/html/humhub/protected/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('dashboard/dashb...', Array)
+#6 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(humhub\components\Request))
+#7 /var/www/html/humhub/index.php(25): yii\base\Application->run()
+#8 {main}
+2019-05-05 15:07:29 [173.24.74.211][5][gnin44mtf4tsbhvfo15freajdk][info][application] $_GET = [
+    'r' => 'dashboard/dashboard'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'pinocho.tk'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3'
+    'HTTP_REFERER' => 'http://pinocho.tk/humhub/index.php?r=user%2Fauth%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => 'pm_getting-started-panel=expanded; PHPSESSID=gnin44mtf4tsbhvfo15freajdk; _identity=6fb9ad1e1820be421479592e1cdff5b7a17c994ea372c106e41543a1e1431f6da%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A50%3A%22%5B5%2C%22ea5a040c-5481-4007-bc57-f600ebc4f173%22%2C2592000%5D%22%3B%7D; _csrf=102b2b9f3200423eda5634a4fef1cf3200e55c37784f9f71d6cff4298db5511ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22k6eZTKsJqYE25rT_GgEByORatid-9Xyu%22%3B%7D'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at pinocho.tk Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'pinocho.tk'
+    'SERVER_ADDR' => '72.36.65.71'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '173.24.74.211'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/humhub/index.php'
+    'REMOTE_PORT' => '52209'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=dashboard%2Fdashboard'
+    'REQUEST_URI' => '/humhub/index.php?r=dashboard%2Fdashboard'
+    'SCRIPT_NAME' => '/humhub/index.php'
+    'PHP_SELF' => '/humhub/index.php'
+    'REQUEST_TIME_FLOAT' => 1557086849.706
+    'REQUEST_TIME' => 1557086849
+]
+2019-05-05 15:16:54 [173.24.74.211][5][gnin44mtf4tsbhvfo15freajdk][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: humhub\modules\user\components\User::getGroups() in /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Component.php:300
+Stack trace:
+#0 /var/www/html/humhub/protected/humhub/modules/dashboard/controllers/DashboardController.php(77): yii\base\Component->__call('getGroups', Array)
+#1 [internal function]: humhub\modules\dashboard\controllers\DashboardController->actionIndex()
+#2 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#5 /var/www/html/humhub/protected/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('dashboard/dashb...', Array)
+#6 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(humhub\components\Request))
+#7 /var/www/html/humhub/index.php(25): yii\base\Application->run()
+#8 {main}
+2019-05-05 15:16:54 [173.24.74.211][5][gnin44mtf4tsbhvfo15freajdk][info][application] $_GET = [
+    'r' => 'dashboard/dashboard'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'pinocho.tk'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3'
+    'HTTP_REFERER' => 'http://pinocho.tk/humhub/index.php?r=user%2Fauth%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => 'pm_getting-started-panel=expanded; PHPSESSID=gnin44mtf4tsbhvfo15freajdk; _identity=6fb9ad1e1820be421479592e1cdff5b7a17c994ea372c106e41543a1e1431f6da%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A50%3A%22%5B5%2C%22ea5a040c-5481-4007-bc57-f600ebc4f173%22%2C2592000%5D%22%3B%7D; _csrf=102b2b9f3200423eda5634a4fef1cf3200e55c37784f9f71d6cff4298db5511ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22k6eZTKsJqYE25rT_GgEByORatid-9Xyu%22%3B%7D'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at pinocho.tk Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'pinocho.tk'
+    'SERVER_ADDR' => '72.36.65.71'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '173.24.74.211'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/humhub/index.php'
+    'REMOTE_PORT' => '52913'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=dashboard%2Fdashboard'
+    'REQUEST_URI' => '/humhub/index.php?r=dashboard%2Fdashboard'
+    'SCRIPT_NAME' => '/humhub/index.php'
+    'PHP_SELF' => '/humhub/index.php'
+    'REQUEST_TIME_FLOAT' => 1557087414.128
+    'REQUEST_TIME' => 1557087414
+]
+2019-05-05 15:26:55 [173.24.74.211][5][gnin44mtf4tsbhvfo15freajdk][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: yii\db\ActiveQuery::getUserGroups() in /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Component.php:300
+Stack trace:
+#0 /var/www/html/humhub/protected/humhub/modules/dashboard/controllers/DashboardController.php(77): yii\base\Component->__call('getUserGroups', Array)
+#1 [internal function]: humhub\modules\dashboard\controllers\DashboardController->actionIndex()
+#2 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#5 /var/www/html/humhub/protected/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('dashboard/dashb...', Array)
+#6 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(humhub\components\Request))
+#7 /var/www/html/humhub/index.php(25): yii\base\Application->run()
+#8 {main}
+2019-05-05 15:26:55 [173.24.74.211][5][gnin44mtf4tsbhvfo15freajdk][info][application] $_GET = [
+    'r' => 'dashboard/dashboard'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'pinocho.tk'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3'
+    'HTTP_REFERER' => 'http://pinocho.tk/humhub/index.php?r=user%2Fauth%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => 'pm_getting-started-panel=expanded; PHPSESSID=gnin44mtf4tsbhvfo15freajdk; _identity=6fb9ad1e1820be421479592e1cdff5b7a17c994ea372c106e41543a1e1431f6da%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A50%3A%22%5B5%2C%22ea5a040c-5481-4007-bc57-f600ebc4f173%22%2C2592000%5D%22%3B%7D; _csrf=102b2b9f3200423eda5634a4fef1cf3200e55c37784f9f71d6cff4298db5511ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22k6eZTKsJqYE25rT_GgEByORatid-9Xyu%22%3B%7D'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at pinocho.tk Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'pinocho.tk'
+    'SERVER_ADDR' => '72.36.65.71'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '173.24.74.211'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/humhub/index.php'
+    'REMOTE_PORT' => '53508'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=dashboard%2Fdashboard'
+    'REQUEST_URI' => '/humhub/index.php?r=dashboard%2Fdashboard'
+    'SCRIPT_NAME' => '/humhub/index.php'
+    'PHP_SELF' => '/humhub/index.php'
+    'REQUEST_TIME_FLOAT' => 1557088015.017
+    'REQUEST_TIME' => 1557088015
+]
+2019-05-05 15:27:08 [173.24.74.211][5][gnin44mtf4tsbhvfo15freajdk][error][yii\base\UnknownMethodException] yii\base\UnknownMethodException: Calling unknown method: humhub\modules\user\components\User::getProfile() in /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Component.php:300
+Stack trace:
+#0 /var/www/html/humhub/protected/humhub/modules/dashboard/controllers/DashboardController.php(77): yii\base\Component->__call('getProfile', Array)
+#1 [internal function]: humhub\modules\dashboard\controllers\DashboardController->actionIndex()
+#2 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#4 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#5 /var/www/html/humhub/protected/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('dashboard/dashb...', Array)
+#6 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(humhub\components\Request))
+#7 /var/www/html/humhub/index.php(25): yii\base\Application->run()
+#8 {main}
+2019-05-05 15:27:08 [173.24.74.211][5][gnin44mtf4tsbhvfo15freajdk][info][application] $_GET = [
+    'r' => 'dashboard/dashboard'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'pinocho.tk'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3'
+    'HTTP_REFERER' => 'http://pinocho.tk/humhub/index.php?r=user%2Fauth%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => 'pm_getting-started-panel=expanded; PHPSESSID=gnin44mtf4tsbhvfo15freajdk; _identity=6fb9ad1e1820be421479592e1cdff5b7a17c994ea372c106e41543a1e1431f6da%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A50%3A%22%5B5%2C%22ea5a040c-5481-4007-bc57-f600ebc4f173%22%2C2592000%5D%22%3B%7D; _csrf=102b2b9f3200423eda5634a4fef1cf3200e55c37784f9f71d6cff4298db5511ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22k6eZTKsJqYE25rT_GgEByORatid-9Xyu%22%3B%7D'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at pinocho.tk Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'pinocho.tk'
+    'SERVER_ADDR' => '72.36.65.71'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '173.24.74.211'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/humhub/index.php'
+    'REMOTE_PORT' => '53524'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=dashboard%2Fdashboard'
+    'REQUEST_URI' => '/humhub/index.php?r=dashboard%2Fdashboard'
+    'SCRIPT_NAME' => '/humhub/index.php'
+    'PHP_SELF' => '/humhub/index.php'
+    'REQUEST_TIME_FLOAT' => 1557088028.631
+    'REQUEST_TIME' => 1557088028
+]
+2019-05-05 17:23:51 [128.206.251.81][5][uqvc0fask8q16hb57o8ifkmkoq][error][Error] Error: Call to undefined function humhub\modules\dashboard\controllers\where() in /var/www/html/humhub/protected/humhub/modules/dashboard/controllers/DashboardController.php:77
+Stack trace:
+#0 [internal function]: humhub\modules\dashboard\controllers\DashboardController->actionIndex()
+#1 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#2 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#3 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#4 /var/www/html/humhub/protected/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('dashboard/dashb...', Array)
+#5 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(humhub\components\Request))
+#6 /var/www/html/humhub/index.php(25): yii\base\Application->run()
+#7 {main}
+2019-05-05 17:23:51 [128.206.251.81][5][uqvc0fask8q16hb57o8ifkmkoq][info][application] $_GET = [
+    'r' => 'dashboard/dashboard'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'pinocho.tk'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3'
+    'HTTP_REFERER' => 'http://pinocho.tk/humhub/index.php?r=user%2Fauth%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => 'pm_getting-started-panel=expanded; PHPSESSID=uqvc0fask8q16hb57o8ifkmkoq; _identity=6fb9ad1e1820be421479592e1cdff5b7a17c994ea372c106e41543a1e1431f6da%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A50%3A%22%5B5%2C%22ea5a040c-5481-4007-bc57-f600ebc4f173%22%2C2592000%5D%22%3B%7D; _csrf=40849497923f9166e5506a79fa1e998aaa09f440dc0caf5bf1f55e15e84a6caea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22rOgjl9y2jUJZEC7Oa54vYTDI0Wf1p4VU%22%3B%7D'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at pinocho.tk Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'pinocho.tk'
+    'SERVER_ADDR' => '72.36.65.71'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '128.206.251.81'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/humhub/index.php'
+    'REMOTE_PORT' => '47932'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=dashboard%2Fdashboard'
+    'REQUEST_URI' => '/humhub/index.php?r=dashboard%2Fdashboard'
+    'SCRIPT_NAME' => '/humhub/index.php'
+    'PHP_SELF' => '/humhub/index.php'
+    'REQUEST_TIME_FLOAT' => 1557095031.271
+    'REQUEST_TIME' => 1557095031
+]
+2019-05-05 17:26:15 [128.206.251.81][5][uqvc0fask8q16hb57o8ifkmkoq][error][yii\base\ErrorException:8] yii\base\ErrorException: Undefined variable: user_groups in /var/www/html/humhub/protected/humhub/modules/dashboard/views/dashboard/index.php:265
+Stack trace:
+#0 /var/www/html/humhub/protected/humhub/modules/dashboard/views/dashboard/index.php(265): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/var/www/html/h...', 265, Array)
+#1 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/View.php(336): require('/var/www/html/h...')
+#2 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/View.php(254): yii\base\View->renderPhpFile('/var/www/html/h...', Array)
+#3 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/View.php(156): yii\base\View->renderFile('/var/www/html/h...', Array, Object(humhub\modules\dashboard\controllers\DashboardController))
+#4 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Controller.php(384): yii\base\View->render('index', Array, Object(humhub\modules\dashboard\controllers\DashboardController))
+#5 /var/www/html/humhub/protected/humhub/modules/dashboard/controllers/DashboardController.php(82): yii\base\Controller->render('index', Array)
+#6 [internal function]: humhub\modules\dashboard\controllers\DashboardController->actionIndex()
+#7 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Module.php(528): yii\base\Controller->runAction('', Array)
+#10 /var/www/html/humhub/protected/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction('dashboard/dashb...', Array)
+#11 /var/www/html/humhub/protected/vendor/yiisoft/yii2/base/Application.php(386): yii\web\Application->handleRequest(Object(humhub\components\Request))
+#12 /var/www/html/humhub/index.php(25): yii\base\Application->run()
+#13 {main}
+2019-05-05 17:26:15 [128.206.251.81][5][uqvc0fask8q16hb57o8ifkmkoq][info][application] $_GET = [
+    'r' => 'dashboard/dashboard'
+]
+
+$_SERVER = [
+    'HTTP_HOST' => 'pinocho.tk'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.131 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3'
+    'HTTP_REFERER' => 'http://pinocho.tk/humhub/index.php?r=user%2Fauth%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'HTTP_COOKIE' => 'pm_getting-started-panel=expanded; PHPSESSID=uqvc0fask8q16hb57o8ifkmkoq; _identity=6fb9ad1e1820be421479592e1cdff5b7a17c994ea372c106e41543a1e1431f6da%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A50%3A%22%5B5%2C%22ea5a040c-5481-4007-bc57-f600ebc4f173%22%2C2592000%5D%22%3B%7D; _csrf=40849497923f9166e5506a79fa1e998aaa09f440dc0caf5bf1f55e15e84a6caea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22rOgjl9y2jUJZEC7Oa54vYTDI0Wf1p4VU%22%3B%7D'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.29 (Ubuntu) Server at pinocho.tk Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.29 (Ubuntu)'
+    'SERVER_NAME' => 'pinocho.tk'
+    'SERVER_ADDR' => '72.36.65.71'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '128.206.251.81'
+    'DOCUMENT_ROOT' => '/var/www/html'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/var/www/html'
+    'SERVER_ADMIN' => 'webmaster@localhost'
+    'SCRIPT_FILENAME' => '/var/www/html/humhub/index.php'
+    'REMOTE_PORT' => '8906'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=dashboard%2Fdashboard'
+    'REQUEST_URI' => '/humhub/index.php?r=dashboard%2Fdashboard'
+    'SCRIPT_NAME' => '/humhub/index.php'
+    'PHP_SELF' => '/humhub/index.php'
+    'REQUEST_TIME_FLOAT' => 1557095175.228
+    'REQUEST_TIME' => 1557095175
+]

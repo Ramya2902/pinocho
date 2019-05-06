@@ -61,6 +61,11 @@ class DashboardController extends Controller
      */
     public function actionIndex()
     {
+        $user_type = 'external';
+        if(Yii::$app->user->getIdentity()->getGroups()->where("name = 'Internal'")->exists()) {
+            $user_type = 'internal';
+        }
+
         if (Yii::$app->user->isGuest) {
             return $this->render('index_guest', []);
         } else if (Yii::$app->user->isAdmin()) {
@@ -73,7 +78,8 @@ class DashboardController extends Controller
             return $this->render('index', [
                 'showProfilePostForm' => Yii::$app->getModule('dashboard')->settings->get('showProfilePostForm'),
                 'contentContainer' => Yii::$app->user->getIdentity(),
-                'user_id' => Yii::$app->user->id
+                'user_id' => Yii::$app->user->id,
+                'user_type' => $user_type
             ]);
         }
     }

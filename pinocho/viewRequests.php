@@ -3,7 +3,7 @@
     require ('credentials.php');
 
     // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli($pinocho_servername, $pinocho_username, $pinocho_password, $pinocho_dbname);
 
     // Check connection
     if ($conn->connect_error) {
@@ -11,8 +11,15 @@
         return;
     }
 
-    $user_id = $_GET['user_id'];
-    $admin_id = $_GET['admin_id'];
+    $user_id = null;
+    $admin_id = null;
+    if(array_key_exists('user_id', $_GET)) {
+        $user_id = $_GET['user_id'];
+    }
+    if(array_key_exists('admin_id', $_GET)) {
+        $admin_id = $_GET['admin_id'];
+    }
+    
 
     if($user_id == null && $admin_id != null) {
         $sql = "SELECT * FROM request WHERE status = 'pending'";

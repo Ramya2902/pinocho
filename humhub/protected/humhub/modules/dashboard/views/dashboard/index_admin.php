@@ -33,6 +33,7 @@ use humhub\widgets\FooterMenu;
     function returnToDashboard() {
         $('.admin-view-request').hide();
         $('.admin-new-request').hide();
+        $('.admin-view-data').hide();
         $('.admin-dashboard').show();
     }
 </script>
@@ -122,6 +123,11 @@ use humhub\widgets\FooterMenu;
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- Title -->
+                    <tr>
+                        <td>Title</td>
+                        <td id="view-request-title">Request Title</td>
+                    </tr>
                     <!-- Date -->
                     <tr>
                         <td>Date</td>
@@ -144,8 +150,13 @@ use humhub\widgets\FooterMenu;
                     </tr>
                     <!-- User Access? -->
                     <tr>
-                        <td>User Access (sp?) *Implement Me*</td>
-                        <td id="view-request-user-access">Local/External</td>
+                        <td>User Access Type</td>
+                        <td id="view-request-user-access">Internal/External</td>
+                    </tr>
+                    <!-- Requested Dataset -->
+                    <tr>
+                        <td>Requested Dataset</td>
+                        <td id="view-request-dataset-name">This is the dataset name</td>
                     </tr>
                     <!-- Usage -->
                     <tr>
@@ -209,7 +220,21 @@ use humhub\widgets\FooterMenu;
             <br>
         </div>
     </div>
-        
+
+    <div class="row admin-view-data" style="display:none">
+    <button type="button" class="btn btn-primary" onclick="returnToDashboard()">Back to Dashboard</button>
+        <div class="row">
+            <h3 id="view-data-header" class="text-center">View Data - Request &lt;ID&gt;</h3>
+            <table id="view-request-table" class="table text-center">
+                <thead>
+                    <tr>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>        
 
     <!-- OLD HUMHUB STUFF -->
     <div class="row" style="display:none">
@@ -343,6 +368,61 @@ use humhub\widgets\FooterMenu;
                                         $('#view-request-risk').parent().after('<tr><td>Access Data</td><td id="view-request-access-link"><a href="#">Click Here</a></td></tr>');
                                     }
 
+                                    $('#view-request-access-link > a').click(function() {
+                                        console.dir("view data link clicked");
+
+                                        $('div.admin-view-data > div > table > thead > tr').html('<td colspan="2">The request returned an empty dataset.</td>');
+                                        $('div.admin-view-data > div > table > tbody').html("");
+
+                                        $.ajax({
+                                            url: "/pinocho/viewData.php",
+                                            type: 'GET',
+                                            dataType: 'json',
+                                            data: {
+                                                "request_id": $('#view-request-id').text()
+                                            },
+                                            success: function(data) {
+                                                console.dir(data);
+
+                                                if(data.data.length != 0) {
+                                                    $('div.admin-view-data > div > table > thead > tr').html("");
+
+                                                    // determine all column names
+                                                    var keys = [];
+                                                    for(var key in data.data[0]) {
+                                                        if(data.data[0].hasOwnProperty(key) && /^\d+$/.test(key) == false) {
+                                                            keys.push(key);
+                                                        }
+                                                    }
+
+                                                    // console.dir(keys);
+
+                                                    for(var key in keys) {
+                                                        $('div.admin-view-data > div > table > thead > tr').append("<td>" + keys[key] + "</td>");
+                                                    }
+
+                                                    for(var row in data.data) {
+                                                        $('div.admin-view-data > div > table > tbody').append("<tr></tr>");
+                                                        // console.dir(data.data[row]);
+                                                        for(var key in keys) {
+                                                            $('div.admin-view-data > div > table > tbody > tr').last().append("<td>" + data.data[row][keys[key]] + "</td>");
+                                                        }
+                                                    }
+                                                }
+
+                                                $('#view-data-header').text("View Data - Request " + $('#view-request-id').text());
+
+                                                $('div.admin-dashboard').hide();
+                                                $('div.admin-view-request').hide();
+                                                $('div.admin-view-data').show();
+                                            },
+                                            error: function(res) {
+                                                console.log("error - GET => /pinocho/viewData.php");
+                                                console.dir(res);
+                                            }
+                                        });
+                                    });
+
                                     $('#denied-description-container').hide();
                                     $('#approve-deny-btns-container').hide();
                                 }else if(data.status == "denied") {
@@ -418,6 +498,10 @@ use humhub\widgets\FooterMenu;
                                     }
                                 }
                                 
+                                var userType = "";
+                                if(data.user_type != null) {
+                                    userType = data.user_type.charAt(0).toUpperCase() + data.user_type.slice(1);
+                                }
 
                                 var dataType = "";
                                 if(data.dataType != null) {
@@ -425,10 +509,13 @@ use humhub\widgets\FooterMenu;
                                 }
 
                                 $('#view-request-header').text("View Request - " + data.id);
+                                $('#view-request-title').text(data.title);
                                 $('#view-request-date').text(dateString);
                                 $('#view-request-id').text(data.id);
                                 $('#view-request-status').text(status);
                                 $('#view-request-desc').text(data.description);
+                                $('#view-request-user-access').text(userType);
+                                $('#view-request-dataset-name').text(data.dataset_name);
                                 $('#view-request-usage').text(data.howDataUsed);
                                 $('#view-request-store').text(data.howDataStored);
                                 $('#view-request-data-type').text(dataType);
@@ -437,6 +524,7 @@ use humhub\widgets\FooterMenu;
                                 $('#view-request-access-length').text(accessLengthString);
                                 $('#view-request-access-soon').text(accessSoonString);
                                 $('#view-request-risk').text(risk);
+
 
                                 $('div.admin-dashboard').hide();
                                 $('div.admin-view-request').show();
@@ -520,10 +608,10 @@ use humhub\widgets\FooterMenu;
                     console.dir(data);
 
                     if(data.status == "OK") {
-                        alert("Successfully denied request" + $('#view-request-id').text() + ". Press OK to return to dashboard");
+                        alert("Successfully denied request " + $('#view-request-id').text() + ". Press OK to return to dashboard");
                         location.reload();
                     }else {
-                        alert("Failed to deny request" + $('#view-request-id').text() + ". Error:\n" + data.error + "\nPlease try again.");
+                        alert("Failed to deny request " + $('#view-request-id').text() + ". Error:\n" + data.error + "\nPlease try again.");
                     }
                 },
                 error: function(data) {
