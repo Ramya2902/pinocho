@@ -489,6 +489,7 @@ use humhub\widgets\FooterMenu;
                                 console.dir(data.compliance);
                                 var irb = "No";
                                 var hipaa = "No";
+
                                 if(data.compliance != null) {
                                     if(data.compliance.includes("irb")) {
                                         irb = "Yes";
