@@ -583,7 +583,7 @@ use humhub\widgets\FooterMenu;
 
                     if(data.status == "OK") {
                         alert("Successfully added new request. Total calculation time = " + data.calculateTime + "ms.\nPress OK to return to dashboard");
-                        // location.reload();
+                        location.reload();
                     }else {
                         alert("Failed to add new request. Error:\n" + data.error + "\nPlease try again.");
                     }
