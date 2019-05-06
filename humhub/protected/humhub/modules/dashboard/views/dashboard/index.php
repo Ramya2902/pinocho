@@ -46,14 +46,14 @@ use humhub\widgets\FooterMenu;
 </script>
 
 <div class="container">
-    <h1>End User</h1>
+    <!-- <h1>End User</h1> -->
     <div class="row text-right">
         <button type="button" class="btn btn-primary" onclick="showNewRequest()">Create New Request</button>
     </div>
     <br>
     <div class="row user-dashboard">
         <div class="col-md-4 user-pending">
-            <h3 class="text-center">Pending Requests</h3>
+            <h3 class="text-center"><b>Pending Requests</b></h3>
             <div class="row">
                 <table id="pending-table" class="table text-center">
                     <thead>
@@ -74,7 +74,7 @@ use humhub\widgets\FooterMenu;
             </div>
         </div>
         <div class="col-md-4 user-approved">
-            <h3 class="text-center">Approved Requests</h3>
+            <h3 class="text-center"><b>Approved Requests</b></h3>
             <div class="row">
                 <table id="approved-table" class="table text-center">
                     <thead>
@@ -100,7 +100,7 @@ use humhub\widgets\FooterMenu;
             </div>
         </div>
         <div class="col-md-4 user-denied">
-            <h3 class="text-center">Denied Requests</h3>
+            <h3 class="text-center"><b>Denied Requests</b></h3>
             <div class="row">
                 <table id="denied-table" class="table text-center">
                     <thead>
@@ -125,7 +125,7 @@ use humhub\widgets\FooterMenu;
     <div class="row user-view-request" style="display:none">
     <button type="button" class="btn btn-primary" onclick="returnToDashboard()">Back to Dashboard</button>
         <div class="row">
-            <h3 id="view-request-header" class="text-center">View Request - &lt;ID&gt;</h3>
+            <h3 id="view-request-header" class="text-center"><b>View Request - &lt;ID&gt;</b></h3>
             <table id="view-request-table" class="table text-center">
                 <thead>
                     <tr>
@@ -172,7 +172,7 @@ use humhub\widgets\FooterMenu;
     <div class="row user-view-data" style="display:none">
     <button type="button" class="btn btn-primary" onclick="returnToDashboard()">Back to Dashboard</button>
         <div class="row">
-            <h3 id="view-data-header" class="text-center">View Data - Request &lt;ID&gt;</h3>
+            <h3 id="view-data-header" class="text-center"><b>View Data - Request &lt;ID&gt;</b></h3>
             <table id="view-request-table" class="table text-center">
                 <thead>
                     <tr>
@@ -459,7 +459,7 @@ use humhub\widgets\FooterMenu;
                                                     }
                                                 }
 
-                                                $('#view-data-header').text("View Data - Request " + $('#view-request-id').text());
+                                                $('#view-data-header > b').text("View Data - Request " + $('#view-request-id').text());
 
                                                 $('div.user-dashboard').hide();
                                                 $('div.user-view-request').hide();
@@ -485,7 +485,7 @@ use humhub\widgets\FooterMenu;
                                     }
                                 }
 
-                                $('#view-request-header').text("View Request - " + data.id);
+                                $('#view-request-header > b').text("View Request - " + data.id);
                                 $('#view-request-title').text(data.title);
                                 $('#view-request-date').text(dateString);
                                 $('#view-request-id').text(data.id);
@@ -582,8 +582,8 @@ use humhub\widgets\FooterMenu;
                     console.dir(data);
 
                     if(data.status == "OK") {
-                        alert("Successfully added new request. Press OK to return to dashboard");
-                        location.reload();
+                        alert("Successfully added new request. Total calculation time = " + data.calculateTime + "ms.\nPress OK to return to dashboard");
+                        // location.reload();
                     }else {
                         alert("Failed to add new request. Error:\n" + data.error + "\nPlease try again.");
                     }

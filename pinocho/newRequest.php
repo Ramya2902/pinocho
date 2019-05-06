@@ -1,5 +1,5 @@
 <?php
-
+    $startTime = microtime(true);
     require ('credentials.php');
 
     // ===V=== CONNECTING TO PINOCHO DATABASE ===V=== \\
@@ -47,7 +47,7 @@
     // input_risk[0]: user_type => 1 = local/internal, 90 = external
     // input_risk[1]: data_type => 95 = identified, 45 = deidentified, 30 = limited, 3 = aggregated
     // input_risk[2]: data_source => 3 = local/internal?, 95 = external?
-    // input_risk defaults: 1, 3, 3 (internal, aggregated, low)
+    // input_risk defaults: 1, 3, 3 (internal, aggregated, ?)
     $input_risk = array(1,3,3);
 
     // determining input_risk for user_type
@@ -150,6 +150,8 @@
     // $result->close();
     $conn->close();
     // ===/\=== END INSERTING REQUEST INTO DATABASE ===/\=== \\
+
+    $json['calculateTime'] = round(microtime(true) - $startTime,3)*1000;
 
     // ===V=== RETURN RESPONSE TO FRONTEND ===V=== \\
     header('Content-Type: application/json');
