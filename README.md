@@ -1,0 +1,6 @@
+The sharing of large datasets from heterogeneous and interlinked data-sources with minimal risk would require informed consent from each party involved in the data requirement. This approach results in a very poor data sharing performance. The existing system suffers from a lack of homogenization initiatives and standard requires of individual negotiation process. Additionally, the compliances with stringent security standards are not completely met for all data providers.
+There is also a potential delay caused due to committee review, resource allocation that goes into queue, query building, testing the query, and communication between different parties.
+There is a need to design an architecture that enables an honest broker to automate the processes that affect the performance and take intelligent decisions when to compromise between security and performance. 
+
+We utilized the existing open source humhub portal and designed our honest broker system - Pinocho, to allow researcher to request for health dataset and therby simultaneously checking for compliance and the risk associated with the request.
+This automation provides a faster data negation process for researchers and clinicians and also ensures that both user and provider’s side meet their requirements.
