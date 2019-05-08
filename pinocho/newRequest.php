@@ -92,15 +92,16 @@
                                 "message" => pg_last_error()));
         return;
     }
-
-    $accept_risk = $dataset['dataset_risk'];
+    $dataset_risk = $dataset['dataset_risk'];
+    $accept_risk = $dataset['acceptable_risk'];
     $dataset_name = $dataset['dataset_name'];
     pg_close($dataset_conn);
     // ===/\=== END RETRIEVING DATASET RISK VALUE DATABASE ===/\=== \\
         
     // calculate risk
+    $input_risk[2] = $dataset_risk;
     $total_risk = 0;
-    $data_risk = log($accept_risk);
+    $data_risk = ($accept_risk);
 
     foreach($input_risk as $i) {
         $total_risk += log($i);
@@ -138,8 +139,8 @@
     $json = null;
 
     if($result) {
-	$json = array("status" => "OK",
-                "dataset" => $dataset,
+	    $json = array("status" => "OK",
+		"dataset" => $dataset,
                 "dataset_risk" => $dataset['dataset_risk'],
                 "risk_assess" => array("risk_factor" => $risk_factor, "data_risk" => $data_risk, "risk_level" => $risk_level));
     }else {
