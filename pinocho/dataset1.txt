@@ -1,0 +1,13 @@
+Requests
+Require IDC10, OPS 8-52 data; need data to query faster; secure and visualize analysis;
+Data to be accessed compliant with DLC3; Data processed and to be stored within community cloud
+Handle the ICD9CM datasets requests for less long execution times and restrictive resource usage policies
+Require the 55.03 data set to be transferred with high speed internet connectivity
+Require the ICD10 data set with the regular Layer 3 Internet paths with less firewall restrictions.
+For ICD9 data in-motion/data-at-rest/data-in-use, the clinician requires to be at a secure location/ transfer network.
+Avoid HCPCS data integrity issues as the data is transferred from a local site to remote site. 
+Require a lot of space for an analysis process / visualization of the HCPCS data sets requested. 
+For the analysis of the A08.5 imaging data, the stages pertain to materials modeling or biological specimen analysis that generate large amounts of raw and processed data sets and image files. Require this different sets of data to be standardized for the analysis within a week. 
+To support my analysis, I require the ICD10 data import from the instrument of large data files to a local or remote compute site with expensive/proprietary and computation-intensive software packages is allowed. 
+The analysis results of Terabytes of HCPCS data needs to be archived, annotated and widely shared amongst the relevant domain science user communities.
+Please provide remote access to the sensitive IDC10 data in a secure link.
